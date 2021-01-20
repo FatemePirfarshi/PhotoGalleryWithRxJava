@@ -21,6 +21,7 @@ import com.example.photogallerywithrxjava.viewmodel.PhotoGalleryViewModel;
 import org.reactivestreams.Subscription;
 
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 public class PhotoGalleryFragment extends Fragment {
 
@@ -49,12 +50,19 @@ public class PhotoGalleryFragment extends Fragment {
         mViewModel = new ViewModelProvider(this).get(PhotoGalleryViewModel.class);
         mViewModel.fetchPopularItemsAsync();
 
-        Observable<List<GalleryItem>> observable = mViewModel.getGalleryItems();
-//        mSubscription = io.reactivex.rxjava3.core.Observable.just()
-
-//        Subscription subscription = RetrofitInstance.getInstance().getGalleryItems(NetworkParams.getPopularOptions());
+//        try {
+////            mViewModel.makeFutureGalleryItems().get().
+//    //        Observable<List<GalleryItem>> observable = mViewModel.getGalleryItems();
+//    //        mSubscription = io.reactivex.rxjava3.core.Observable.just()
+//
+//    //        Subscription subscription = RetrofitInstance.getInstance().getGalleryItems(NetworkParams.getPopularOptions());
+//
+//        } catch (ExecutionException e) {
+//            e.printStackTrace();
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
         setLiveDataObservers();
-
     }
 
     @Override

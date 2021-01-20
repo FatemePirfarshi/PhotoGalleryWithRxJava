@@ -15,6 +15,7 @@ import com.example.photogallerywithrxjava.data.repository.PhotoRepository;
 import org.reactivestreams.Subscription;
 
 import java.util.List;
+import java.util.concurrent.Future;
 
 public class PhotoGalleryViewModel extends AndroidViewModel {
 
@@ -37,7 +38,11 @@ public class PhotoGalleryViewModel extends AndroidViewModel {
 //        Subscription subscription = RetrofitInstance.getInstance().getGalleryItems(NetworkParams.getPopularOptions()).
     }
 
-    public Observable<List<GalleryItem>> getGalleryItems() {
-        return mRepository.getGalleryItems();
+    public Future<Observable<List<GalleryItem>>> makeFutureGalleryItems() {
+        return mRepository.makeFuture();
+    }
+
+    private void test(){
+        
     }
 }
